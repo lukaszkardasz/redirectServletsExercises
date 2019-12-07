@@ -17,7 +17,7 @@ public class AdminServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		System.out.println("Admin servlet POST" + username);
 
-		//W takiej sytuacji do przeglądarki zostaje wysłana odpowiedź z kodem 302 lub 301, po czym przeglądarka wysyła następnie żądanie do serwera pod wskazany jako argument adres.
-		response.sendRedirect("LoginServlet");
+		request.getRequestDispatcher("LoginServlet").forward(request, response);
+		response.getWriter().println("Tekst odpowiedzi po operacji forward()");
 	}
 }
