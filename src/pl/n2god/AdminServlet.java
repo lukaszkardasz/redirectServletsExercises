@@ -15,9 +15,9 @@ import java.io.IOException;
 public class AdminServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
-		System.out.println("Admin servlet POST" + username);
+		System.out.println("Admin servlet POST " + username);
 
-		request.getRequestDispatcher("LoginServlet").forward(request, response);
-		response.getWriter().println("Tekst odpowiedzi po operacji forward()");
+		request.getRequestDispatcher("LoginServlet").include(request, response);
+		response.getWriter().println("Tekst odpowiedzi po operacji include()");
 	}
 }
